@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Breed Selection Survey</title>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="icon" href="{{ url_for('static',filename='./images/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='authentication_style.css') }}">
+    <style>
+        .container {
+            max-width: 500px;
+            opacity: 0.7;
+            margin: 10px;
+        }
+
+        .container form .title:before {
+            width: 75px;
+        }
+
+        body {
+            background-image: url('/static/images/dog_adopt.jpg');
+            padding: 20px;
+            background-size: cover;
+            animation-name: none;
+        }
+
+        .container .option {
+            font-size: 14px;
+            text-align: start;
+            margin: 10px 10px 10px 50px;
+        }
+    </style>
+    <script defer>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const myElement = document.getElementsByTagName('body')[0]; // Access the first body element
+            const imageUrls = [
+                'static/images/dog_adopt.jpg',
+                'static/images/cat_adopt.jpg',
+            ];
+            let currentIndex = 0;
+
+            // Function to change the background image URL
+            function changeBackgroundImage() {
+                myElement.style.backgroundImage = `url("${imageUrls[currentIndex]}")`; // Use template literals
+                currentIndex = (currentIndex + 1) % imageUrls.length;
+            }
+
+            // Call the function initially and then at a 10-second interval
+            changeBackgroundImage(); // Change immediately
+            setInterval(changeBackgroundImage, 10000); // 10000 milliseconds = 10 seconds
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form action="admin" method="post">
+            <div class="title">Breed Survey</div>
+            <div class="radioContainer">
+                <input type="text" placeholder="Enter Breed" name="breed" required />
+                <p>1. What is your daily time commitment for pet care?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="time_commitment" value="Less than 30 minutes"> Less than 30 minutes
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="time_commitment" value="30 minutes to 1 hour"> 30 minutes to 1 hour
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="time_commitment" value="More than 1 hour"> More than 1 hour
+                    </div>
+                </div>
+            </div>
+            <!-- radioContainer 2 -->
+            <div class="radioContainer">
+                <p>2. What is your living space like?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="living_space" value="Apartment or Small Condo"> Apartment or Small
+                        Condo
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="living_space" value="House with a Yard"> House with a Yard
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="living_space" value="Rural Area with Open Space"> Rural Area with Open
+                        Space
+                    </div>
+                </div>
+            </div>
+
+            <!-- radioContainer 4 -->
+            <div class="radioContainer">
+                <p>3. How active is your lifestyle?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="activity_level" value="Very Active (Frequent outdoor activities)">
+                        Very Active (Frequent outdoor activities)
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="activity_level" value="Moderately Active (Some outdoor activities)">
+                        Moderately Active (Some outdoor activities)
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="activity_level" value="Sedentary (Minimal outdoor activities)">
+                        Sedentary (Minimal outdoor activities)
+                    </div>
+                </div>
+            </div>
+
+            <!-- radioContainer 8 -->
+            <div class="radioContainer">
+                <p>4. What are your personal preferences for pets?</p>
+                <div class="options">
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="preferences" value="Dogs"> Dogs
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="preferences" value="Cats"> Cats
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="preferences" value="Birds"> Birds
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="preferences" value="Reptiles"> Reptiles
+                        </div>
+                    </div>
+                    <!-- Add more options based on personal preferences -->
+                </div>
+            </div>
+            <!-- radioContainer 9 -->
+            <div class="radioContainer">
+                <p>5. How often do you travel?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="travel_frequency" value="Frequently"> Frequently
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="travel_frequency" value="Occasionally"> Occasionally
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="travel_frequency" value="Rarely"> Rarely
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="travel_frequency" value="Never"> Never
+                    </div>
+                </div>
+            </div>
+
+            <!-- radioContainer 10 -->
+            <div class="radioContainer">
+                <p>6. How tolerant are you to noise?</p>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="noise_tolerance" value="Very Tolerant"> Very Tolerant
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="noise_tolerance" value="Moderately Tolerant"> Moderately Tolerant
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="noise_tolerance" value="Low Tolerance"> Low Tolerance
+                    </div>
+                </div>
+            </div>
+            <div class="input-box button">
+                <input type="submit" name="" value="Submit Survey" />
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

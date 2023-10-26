@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static',filename='./images/favicon.ico') }}" type="image/x-icon">
+    <title>Pet Image Upload</title>
+    <style>
+        body {
+            background-image: url('/static/images/dog_adopt.jpg');
+            background-size: cover;
+            /* Scale the image to cover the entire body */
+            background-repeat: no-repeat;
+            /* Prevent image repetition */
+            background-attachment: fixed;
+            /* Fixed background image */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
+        }
+
+        /* Styling for the file input */
+        .file-input {
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the submit button */
+        .submit-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Styling for previewing the uploaded image */
+        .image-preview {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="{{ url_for('dashboard') }}"
+            style="text-decoration: none;color:rebeccapurple; font-size:20px;">Dashboard</a>
+        <h1>Upload Your Pet's Image</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="file-input">
+                <input type="file" name="petImage" accept="image/*" required>
+            </div>
+            <div class="file-input">
+                <label><b>Price </b></label>
+                <input type="number" name="price" id="price" required min="0" value="0">
+                <p style="color: red;">*choose price 0 for adoption</p>
+            </div>
+            <button type="submit" class="submit-button">Upload</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='hidden_script.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard_style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard_styleguide.css') }}">
+  <link rel="icon" href="{{ url_for('static',filename='./images/favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+  <div class="user-dashboard">
+    <div class="div">
+      <div class="overlap">
+        <div class="overlap-group">
+          <img class="line-2" src="{{ url_for('static', filename='images/line-4.svg') }}" />
+          <div class="line-3"></div>
+        </div>
+        <div class="frame">
+          <a href="{{ url_for('dashboard') }}">Dashboard</a>
+          <p style="font-size: 18px;"><a href="{{ url_for('survey') }}" style="text-decoration-line: none;">Survey</a>
+          </p>
+          <p style="font-size: 18px;"><a href="{{ url_for('addPets') }}" style="text-decoration-line: none;">Add
+              Pets</a>
+          </p>
+          <p style="font-size: 18px;"><a href="{{ url_for('orders') }}" style="text-decoration-line: none;">Orders</a>
+          </p>
+          <p style="font-size: 18px;"><a href="{{ url_for('sell') }}" style="text-decoration-line: none;">Pet</a>
+          </p>
+          <a href="/logout">Logout</a>
+        </div>
+        <img class="image" src="{{ url_for('static', filename='images/banner.jpg') }}" />
+      </div>
+      <article style="position: absolute;top:600px">
+        <main style="position:relative;width: 70%;left: 20%;">
+          <div class="row">
+            <div class="container">
+              <div>
+                <div class="rectangle"></div>
+                <div class="text-wrapper-1">Today’s</div>
+              </div>
+              <div class="text-wrapper-2">Recommented Pets</div>
+            </div>
+            <section id="recommend">
+            </section>
+          </div>
+        </main>
+
+        <main style="position:relative;width: 70%;left: 20%;">
+          <div class="row">
+            <div class="container">
+              <div>
+                <div class="rectangle"></div>
+                <div class="text-wrapper-1">Today’s</div>
+              </div>
+              <div class="text-wrapper-2">Pets for Adoption</div>
+            </div>
+            <section id="adopt">
+            </section>
+          </div>
+        </main>
+      </article>
+
+      <div class="header">
+        <div class="header-2">
+          <div class="frame-21">
+            <div class="logo">
+              <div class="exclusive-2 text-danger">JA PETS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
